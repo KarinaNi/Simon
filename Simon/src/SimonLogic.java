@@ -1,4 +1,6 @@
-
+/*
+ * :)
+ */
 public class SimonLogic {
 	private RandomSimonList randomList = new RandomSimonList();
 	
