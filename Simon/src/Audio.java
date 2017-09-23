@@ -8,8 +8,9 @@ public class Audio {
     URL audio3URL;
     URL audio4URL;
     
-    public void playSound(int soundNumber) {
-        try {
+    public static void playSound(int soundNumber) {
+        try
+        {
             myURL = new URL("http://example.com/pages/");
             AudioClip clip = Applet.newAudioClip(audio1URL);
             clip.play();
