@@ -1,15 +1,11 @@
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.image.ColorModel;
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -30,16 +26,20 @@ public class BoardPanel extends JPanel
 
 	ArrayList<Integer> playerInput = new ArrayList<Integer>();
 	File[] sounds = new File[4];
+	
+	String[] gratification = {"Nice", "Superb", "Well done", "Fantastic", "Amazing", "Wonderful", "Splendid",
+            "Extraordinary", "Scandalous", "Nasty", "Delicious", "Supreme skill", "Sensational",
+            "Magnificent"};
 
 	public BoardPanel()
-	{
+	{		
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setLayout(null);//new FlowLayout());
 
 		title = new JLabel("Welcome to Simon!");
 
-		title.setFont(new Font("Courier", Font.PLAIN, 32)); 
+		title.setFont(new Font("Comic Sans MS", Font.PLAIN, 32)); //HAHAHA COMIC SANS
 		title.setHorizontalAlignment(SwingConstants.CENTER);
 		title.setVerticalAlignment(SwingConstants.TOP);
 		title.setOpaque(true);
@@ -47,14 +47,15 @@ public class BoardPanel extends JPanel
 		title.setForeground(Color.white);
 		title.setBounds(0,0,600,50); 
 		
-//		File beep = new File("C:\\Users\\Mike\\Documents\\sdc-hackathon-simon\\Simon\\src\\beep.wav");
-//		File button = new File("C:\\Users\\Mike\\Documents\\sdc-hackathon-simon\\Simon\\src\\button.wav");
-//		File snap = new File("C:\\Users\\Mike\\Documents\\sdc-hackathon-simon\\Simon\\src\\snap.wav");
-//		File switchs = new File("C:\\Users\\Mike\\Documents\\sdc-hackathon-simon\\Simon\\src\\switch.wav");
-//		sounds[0] = beep;
-//		sounds[1] = button;
-//		sounds[2] = snap;
-//		sounds[3] = switchs;
+		//CHANGE THESE PATHS TO LOCAL, idk how
+		File beep = new File("src/beep.wav");
+		File button = new File("src/button.wav");
+		File snap = new File("src/snap.wav");
+		File switchs = new File("src/switch.wav");
+		sounds[0] = beep;
+		sounds[1] = button;
+		sounds[2] = snap;
+		sounds[3] = switchs;
 		
 		button0 = new JButton();
 		button0.setBackground(new Color(150,0,0));
@@ -150,11 +151,6 @@ public class BoardPanel extends JPanel
 			{
 				playerInput.clear();
 				game.nextTurn();
-				//		<Integer> currentList = new ArrayList<Integer>();
-				//		currentList.add(0);
-				//		currentList.add(1);
-				//		currentList.add(2);
-				//		currentList.add(3);
 				loopLight(currentList, score);
 
 				while (playerInput.size()< currentList.size())
@@ -166,7 +162,6 @@ public class BoardPanel extends JPanel
 						e.printStackTrace();
 					}
 				}
-				boolean win = true;
 				for (int ii = 0; ii < playerInput.size(); ii++)
 				{
 					if (playerInput.get(ii) != currentList.get(ii))
@@ -175,7 +170,7 @@ public class BoardPanel extends JPanel
 					}
 
 				}
-				title.setText("Nice! Next up...");
+				title.setText(gratification[new Random().nextInt(gratification.length)] + "! Next up...");
 				score++;
 				try {
 					Thread.sleep(1000);
@@ -211,5 +206,7 @@ public class BoardPanel extends JPanel
 			}
 			buttons[currentList.get(i)].setBackground(c);
 		}
+		playerInput.clear();
+		title.setText("Your turn");
 	}
 }
