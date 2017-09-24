@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -70,13 +71,5 @@ public class BoardPanel extends JPanel
 	    frame.setVisible(true);
 	}
 	
-	public void LightUp()
-	{
-		ArrayList<Integer> currentList = SimonLogic.getList();
-		for (int i = 0; i < currentList.size(); i++)
-		{
-			Audio.PlaySound(currentList[i]);
-			
-		}
-	}
+	
 }
