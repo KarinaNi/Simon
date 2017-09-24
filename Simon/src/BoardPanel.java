@@ -59,6 +59,7 @@ public class BoardPanel extends JPanel
 		
 		button0 = new JButton();
 		button0.setBackground(new Color(150,0,0));
+		handleMacColors(button0);
 		button0.setBounds(0,50,300,300);
 		button0.addActionListener(new ActionListener() { 
 			@Override
@@ -70,6 +71,7 @@ public class BoardPanel extends JPanel
 
 		button1 = new JButton();
 		button1.setBackground(new Color(150,150,0));
+		handleMacColors(button1);
 		button1.setBounds(300,50,300,300);
 		button1.addActionListener(new ActionListener() { 
 			@Override
@@ -81,6 +83,7 @@ public class BoardPanel extends JPanel
 
 		button2 = new JButton();
 		button2.setBackground(new Color(0,0,150));
+		handleMacColors(button2);
 		button2.setBounds(0,350,300,300);
 		button2.addActionListener(new ActionListener() { 
 			@Override
@@ -94,6 +97,7 @@ public class BoardPanel extends JPanel
 
 		button3 = new JButton();
 		button3.setBackground(new Color(0,150,0));
+		handleMacColors(button3);
 		button3.setBounds(300,350,300,300);
 		button3.addActionListener(new ActionListener() { 
 			@Override
@@ -126,7 +130,6 @@ public class BoardPanel extends JPanel
 		try {
 			Thread.sleep(1500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		int score = 0;
@@ -134,7 +137,6 @@ public class BoardPanel extends JPanel
 		try {
 			Thread.sleep(1500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		SimonLogic game = new SimonLogic();
@@ -143,7 +145,6 @@ public class BoardPanel extends JPanel
 		try {
 			Thread.sleep(500);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		bigLoop:
@@ -158,7 +159,6 @@ public class BoardPanel extends JPanel
 					try {
 						Thread.sleep(1);
 					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				}
@@ -175,7 +175,6 @@ public class BoardPanel extends JPanel
 				try {
 					Thread.sleep(1000);
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				title.setText(">:)");
@@ -184,10 +183,14 @@ public class BoardPanel extends JPanel
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		title.setText("Your score: " + score);
+	}
+	
+	public void handleMacColors(JButton button) {
+		button.setOpaque(true);
+		button.setBorderPainted(false);
 	}
 
 	public void loopLight(ArrayList<Integer> currentList, int score)
@@ -199,9 +202,9 @@ public class BoardPanel extends JPanel
 			buttons[currentList.get(i)].setBackground(cc.brighter());
 			Main.PlaySound(sounds[currentList.get(i)]);
 			try {
-				Thread.sleep(1500 - 10*score);
+//				Thread.sleep(1500 - 10*score);
+				Thread.sleep(500);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			buttons[currentList.get(i)].setBackground(c);
