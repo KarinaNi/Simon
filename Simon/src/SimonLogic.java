@@ -5,9 +5,12 @@ import java.util.ArrayList;
  */
 public class SimonLogic {
 	
-	private static RandomSimonList randomList = new RandomSimonList();
+	private static RandomSimonList randomList;
 	
-	public static ArrayList<Integer> getList() {
+	public SimonLogic() {
+		randomList = new RandomSimonList();
+	}
+	public ArrayList<Integer> getList() {
 		return randomList.getRandomList();
 	}
 	

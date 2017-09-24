@@ -12,7 +12,7 @@ public class RandomSimonList {
 	}
 	
 	public int getNextNumber() {
-		int nextNum = randomGen.nextInt(4) + 1;
+		int nextNum = randomGen.nextInt(4);
 		randomList.add(nextNum);
 		return nextNum;
 	}
