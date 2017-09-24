@@ -1,6 +1,13 @@
+/BoardPanel$1.class
+/BoardPanel$2.class
+/BoardPanel$3.class
+/BoardPanel$4.class
 /BoardPanel.class
-/Display.class
 /Main.class
-/Audio.class
-/SimonLogic.class
 /RandomSimonList.class
+/SimonLogic.class
+/sounds/
+/beep.wav
+/button.wav
+/snap.wav
+/switch.wav
